@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    button{
+       background-color: darkgreen;
+       font-size:large;
+       color: lightgreen;
+       border: 5px solid darkgreen;
+    }
+    button:hover{
+        background-color: lightgreen;
+        color: darkgreen;
+        border: 5px solid darkgreen;
+    }
+    #Quotes{
+         
+      font-size: xx-large;
+      font-weight: 500;
+      padding-left: 400px;
+    }
+    .all{
+        margin: 100px;
+        padding: 100px;
+        border: 2px solid darkgreen;
+        display: flex;
+        background-color: lightgreen;
+        color:green;
+        font-size: larger;
+        font-weight: 500;
+    }
+
+</style>
+
+</head>
+<body>
+    <div class="all">
+    <button onclick='clickQuote()'>CLICK HERE</button>
+<div id='Quotes'></div>
+    </div>
+<script>
+    const divWithQuote = document.getElementById("Quotes");
+
+const clickQuote = () => {
+  fetch("https://dummyjson.com/quotes/random")
+    .then((response) => response.json())
+    .then((data) => (divWithQuote.innerHTML = data.quote));
+};
+
+</script>
+</body>
+</html>
